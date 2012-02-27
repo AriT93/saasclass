@@ -1,0 +1,10 @@
+require 'spec_helper'
+
+
+module Assignment1
+  describe Palindrome do
+    it "should recoginze A man, a plan a canal -- Panama" do
+      palindrome?("A man, a plan a canal -- Panama").should == true
+    end
+  end
+end
