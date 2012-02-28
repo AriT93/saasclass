@@ -1,0 +1,9 @@
+require 'spec_helper'
+
+module Assignment1
+  describe "#word_count" do
+    it "should count words" do
+      word_count(string).should == true
+    end
+  end
+end
