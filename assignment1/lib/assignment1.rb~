@@ -1,3 +1,2 @@
-def palindrome?(string)
-  return string.downcase!.gsub!(/\b |, |[-]+ ?|[!']/,'').eql?(string.reverse)
-end
+require 'assignment1/palindrome.rb'
+require 'assignment1/word_count.rb'
