@@ -11,5 +11,11 @@ module Assignment1
     it "should return false on Abracadabra" do
       palindrome?("Abracadabra").should == false
     end
+    it "should pass the test case " do
+      palindrome?("Do geese see God?").should == true
+    end
+    it "should pass the new test case" do
+      palindrome?("Murder for a jar of red rum.").should == true
+    end
   end
 end

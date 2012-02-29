@@ -26,5 +26,19 @@ module Assignment1
       players = [["armando", "r"],["dave","d"]]
       lambda { rps_game_winner(players)}.should raise_error(NoSuchStrategyError)
     end
+    it "should scare a tie for player 1" do
+      players = [["armando", "s"],["dave","s"]]
+      rps_game_winner(players).should == players[0]
+    end
+  end
+  describe "#rps_tournament_winner" do
+    it "should score a tournament" do
+      players = [[["bob", "p"],["ray", "s"]],[["paul", "r"],["tom","s"]]]
+      rps_tournament_winner(players).should == ["paul","r"]
+    end
+    it "should score a large tournament" do
+      players = [[["bob", "p"],["ray", "s"]],[["paul", "r"],["tom","s"]],[["ari","p"],["owen","s"]]]
+      rps_tournament_winner(players).should == ["paul","r"]
+    end
   end
 end
