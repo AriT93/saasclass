@@ -4,19 +4,17 @@ class NoSuchStrategyError < StandardError ; end
 def rps_game_winner(game)
   raise WrongNumberOfPlayersError unless game.length == 2
   game.each{ |p| raise NoSuchStrategyError unless p[1].match(/[PRSprs]/) }
-  return score_bout(game[0], game[1])
+  return  score_bout(game[0], game[1])
 end
 
 def rps_tournament_winner(tournament)
-  tournament.collect{ |round|
-    tournament.last.length == 1 ? tournament.last.push(rps_game_winner(round)) : tournament.push([rps_game_winner(round)])
-
-  }
-
-rescue WrongNumberOfPlayersError
-  return tournament.last.pop
-
+ if tournament[0][0].kind_of?(Array)
+   rps_game_winner([ rps_tournament_winner(tournament[0]), rps_tournament_winner(tournament[1]) ])
+  else
+   rps_game_winner(tournament)
+  end
 end
+
 def score_bout(player1, player2)
   winner = player2
   return player1 if player1[1].upcase.eql?(player2[1].upcase)

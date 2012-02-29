@@ -34,11 +34,15 @@ module Assignment1
   describe "#rps_tournament_winner" do
     it "should score a tournament" do
       players = [[["bob", "p"],["ray", "s"]],[["paul", "r"],["tom","s"]]]
-      rps_tournament_winner(players).should == ["paul","r"]
+      rps_tournament_winner(players)[0].should == "paul"
     end
-    it "should score a large tournament" do
-      players = [[["bob", "p"],["ray", "s"]],[["paul", "r"],["tom","s"]],[["ari","p"],["owen","s"]]]
-      rps_tournament_winner(players).should == ["paul","r"]
+    it "shold score a tournament of 1 match" do
+      players = [["armando", "r"],["dave","s"]]
+      rps_tournament_winner(players)[0].should == "armando"
+    end
+    it "should score the example correctly" do
+      players = [[[ ["Armando", "P"], ["Dave", "S"] ],[ ["Richard", "R"],  ["Michael", "S"] ],],[[ ["Allen", "S"], ["Omer", "P"] ],[ ["David E.", "R"], ["Richard X.", "P"] ]]]
+      rps_tournament_winner(players)[0].should == "Richard"
     end
   end
 end
