@@ -13,4 +13,16 @@ class Dessert
 end
 
 class JellyBean < Dessert
+  attr_accessor :flavor
+  def initialize(name, calories, flavor)
+    @flavor = flavor
+    super(name, calories)
+  end
+  def delicious?
+    if @flavor.downcase.eql?("black licorice")
+      false
+    else
+      super
+    end
+  end
 end

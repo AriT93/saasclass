@@ -35,4 +35,17 @@ module Assignment1
       p.delicious?.should == true
     end
   end
+  describe "JellyBean" do
+    it "should extend Dessert" do
+      JellyBean.superclass.should == Dessert
+    end
+    it "should  add a flavor attribute" do
+      jb = JellyBean.new("myhbean",100,"black licorice")
+      jb.flavor.should == "black licorice"
+    end
+    it "should return false for delicious? for black licorice" do
+      jb = JellyBean.new("starburst", 200, "black licorice")
+      jb.delicious?.should ==  false
+    end
+  end
 end
