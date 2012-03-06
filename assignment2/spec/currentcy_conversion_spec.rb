@@ -26,5 +26,11 @@ module Currency_Conversion
     it "should pass the new test case" do
       "Murder for a jar of red rum.".palindrome?.should == true
     end
+    it "should test arrays for palindromicity" do
+      [1,2,3,2,1].palindrome?.should == true
+    end
+    it "should handle hashes without erroring" do
+      { 'a' => 1, 'b' => 2, 'c' => 1}.palindrome?.should == false
+    end
   end
 end

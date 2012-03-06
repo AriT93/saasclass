@@ -19,6 +19,12 @@ end
 
 class String
   def palindrome?
-    self.upcase!.gsub!(/[\.\?!@#$&,*'-]? ?/,'').gsub!(/\b ?/,'').eql?(self.reverse)
+    self.downcase.gsub(/\W/,'').eql?(self.downcase.gsub(/\W/,'').reverse)
+  end
+end
+
+module Enumerable
+  def palindrome?
+    self.to_a == self.to_a.reverse
   end
 end
