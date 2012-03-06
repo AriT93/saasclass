@@ -16,3 +16,9 @@ class Numeric
     end
   end
 end
+
+class String
+  def palindrome?
+    self.upcase!.gsub!(/[\.\?!@#$&,*'-]? ?/,'').gsub!(/\b ?/,'').eql?(self.reverse)
+  end
+end
