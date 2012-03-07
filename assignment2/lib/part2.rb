@@ -9,7 +9,6 @@ class CartesianProduct
     @a.product(@b)
   end
   def each
-    retval = @a.product(@b)
-    retval.each{ |elt| yield}
+    @a.product(@b).collect{ |elt| yield elt}
   end
 end
